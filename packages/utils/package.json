@@ -1,6 +1,6 @@
 {
   "name": "@klyper/utils",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Utility helpers for the Klyper ecosystem.",
   "author": "Andrew Caires",
   "license": "MIT",
