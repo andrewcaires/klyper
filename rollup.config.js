@@ -2,7 +2,7 @@ import sucrase from "@rollup/plugin-sucrase";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import dts from "unplugin-dts/rollup";
+import { dts } from "rollup-plugin-dts";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
 const packagesDir = join(rootDir, "packages");
@@ -74,44 +74,47 @@ function visitPackage(pkg) {
 
 packages.forEach(visitPackage);
 
-export default orderedPackages.map((pkg) => {
+export default orderedPackages.flatMap((pkg) => {
 
   const dependencyNames = Object.keys(pkg.manifest.dependencies ?? {});
   const banner = createBanner(pkg.manifest);
 
-  return {
-    input: join(pkg.dir, "src", "index.ts"),
-    external: dependencyNames,
-    plugins: [
-      sucrase({
-        transforms: ["typescript"]
-      }),
-      dts({
-        root: pkg.dir,
-        tsconfigPath: join(pkg.dir, "tsconfig.json"),
-        entryRoot: "src",
-        outDir: "dist",
-        beforeWriteFile(filePath, content) {
-
-          return {
-            filePath,
-            content: `${banner}\n${content}`
-          };
-        }
-      })
-    ],
-    output: [
-      {
-        file: join(pkg.dir, "dist", "index.js"),
-        format: "esm",
-        banner
+  return [
+    {
+      input: join(pkg.dir, "src", "index.ts"),
+      external: dependencyNames,
+      plugins: [
+        sucrase({
+          transforms: ["typescript"],
+        }),
+      ],
+      output: [
+        {
+          file: join(pkg.dir, "dist", "index.js"),
+          format: "esm",
+          banner,
+        },
+        {
+          file: join(pkg.dir, "dist", "index.cjs"),
+          format: "cjs",
+          exports: "named",
+          banner,
+        },
+      ],
+    },
+    {
+      input: join(pkg.dir, "src", "index.ts"),
+      external: dependencyNames,
+      plugins: [
+        dts({
+          tsconfig: join(pkg.dir, "tsconfig.json"),
+        }),
+      ],
+      output: {
+        file: join(pkg.dir, "dist", "index.d.ts"),
+        format: "es",
+        banner,
       },
-      {
-        file: join(pkg.dir, "dist", "index.cjs"),
-        format: "cjs",
-        exports: "named",
-        banner
-      }
-    ]
-  };
+    },
+  ];
 });
