@@ -1,9 +1,13 @@
 {
   "name": "@klyper/validations",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Validation helpers for the Klyper ecosystem.",
   "author": "Andrew Caires",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewcaires/klyper.git"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

@@ -1,9 +1,13 @@
 {
   "name": "klyper",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Unified public entrypoint for the Klyper packages.",
   "author": "Andrew Caires",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewcaires/klyper.git"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -19,8 +23,8 @@
     "dist"
   ],
   "dependencies": {
-    "@klyper/utils": "0.2.1",
-    "@klyper/validations": "0.2.1"
+    "@klyper/utils": "0.2.2",
+    "@klyper/validations": "0.2.2"
   },
   "scripts": {
     "clean": "rm -rf dist",
