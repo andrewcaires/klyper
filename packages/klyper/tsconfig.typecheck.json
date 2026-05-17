@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@klyper/utils": [
+        "../../packages/utils/src/index.ts"
+      ],
+      "@klyper/validations": [
+        "../../packages/validations/src/index.ts"
+      ]
+    },
+    "rootDir": "../.."
+  }
+}

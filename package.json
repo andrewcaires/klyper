@@ -1,0 +1,30 @@
+{
+  "name": "klyper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run lint && npm run typecheck && npm run bundle",
+    "bundle": "rollup --bundleConfigAsCjs -c rollup.config.js",
+    "changeset": "changeset",
+    "clean": "npm run clean --workspaces",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "npm run build && changeset publish",
+    "version-packages": "changeset version",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@eslint/js": "^10.0.1",
+    "@rollup/plugin-sucrase": "^5.1.0",
+    "eslint": "^10.4.0",
+    "rollup": "^4.60.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.3",
+    "unplugin-dts": "^1.0.0"
+  }
+}

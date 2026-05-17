@@ -1,0 +1,18 @@
+# system 
+.DS_Store
+Thumbs.db
+
+# directories
+dist
+node_modules
+
+# environment
+.env
+
+# npm
+.npm
+
+# vscode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

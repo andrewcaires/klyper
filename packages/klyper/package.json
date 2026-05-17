@@ -1,0 +1,29 @@
+{
+  "name": "klyper",
+  "version": "0.2.0",
+  "description": "Unified public entrypoint for the Klyper packages.",
+  "author": "Andrew Caires",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@klyper/utils": "0.2.0",
+    "@klyper/validations": "0.2.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit"
+  }
+}
