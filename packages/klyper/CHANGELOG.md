@@ -1,5 +1,14 @@
 # klyper
 
+## 0.2.3
+
+### Patch Changes
+
+- 66f78d7: Adiciona validadores de tipo e reorganiza a API pública de utilitários.
+- Updated dependencies [66f78d7]
+  - @klyper/utils@0.2.3
+  - @klyper/validations@0.2.3
+
 ## 0.2.1
 
 ### Patch Changes
