@@ -1,6 +1,6 @@
 {
   "name": "klyper",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Unified public entrypoint for the Klyper packages.",
   "author": "Andrew Caires",
   "license": "MIT",
@@ -23,8 +23,8 @@
     "dist"
   ],
   "dependencies": {
-    "@klyper/utils": "0.2.2",
-    "@klyper/validations": "0.2.2"
+    "@klyper/utils": "1.0.0",
+    "@klyper/validations": "1.0.0"
   },
   "scripts": {
     "clean": "rm -rf dist",

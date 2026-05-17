@@ -1,5 +1,11 @@
 # @klyper/utils
 
+## 1.0.0
+
+### Major Changes
+
+- 66f78d7: Adiciona validadores de tipo e reorganiza a API pública de utilitários.
+
 ## 0.2.1
 
 ### Patch Changes
