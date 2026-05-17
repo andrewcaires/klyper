@@ -1,5 +1,13 @@
 # klyper
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [8747bf6]
+  - @klyper/utils@0.2.1
+  - @klyper/validations@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
